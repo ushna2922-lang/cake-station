@@ -28,112 +28,141 @@
       --cream3: #ede3d4;
       --dark: #2d1f0e;
       --muted: #7a5c3e;
-      --border: #e0cdb0
+      --border: #e0cdb0;
+      --pink: #f2c4b8
     }
 
     /* NAV */
     nav {
       background: #fff9f2;
-      border-bottom: 1.5px solid var(--border);
-      padding: 0 1.25rem;
+      border-bottom: 2px solid var(--border);
+      padding: 0 2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
       position: sticky;
       top: 0;
       z-index: 200;
-      height: 60px;
-      box-shadow: 0 2px 10px #c9973a18
+      height: 80px;
+      box-shadow: 0 3px 16px #c9973a22
     }
 
     .logo {
       display: flex;
       align-items: center;
-      gap: .55rem;
+      gap: .7rem;
       min-width: 0
     }
 
-    .logo-circle {
-      width: 36px;
-      height: 36px;
-      flex-shrink: 0;
+    .logo img {
+      height: 60px;
+      width: 60px;
+      object-fit: contain;
       border-radius: 50%;
-      background: linear-gradient(135deg, #c9973a, #8b5230);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem
+      background: #fdf0eb
     }
 
     .logo-text {
-      font-size: 1.1rem;
-      font-weight: 800;
-      color: var(--brown);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1
     }
 
-    .logo-text span {
+    .logo-name {
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: var(--brown);
+      letter-spacing: .5px
+    }
+
+    .logo-name span {
       color: var(--gold)
+    }
+
+    .logo-tagline {
+      font-size: .68rem;
+      color: var(--muted);
+      font-style: italic;
+      font-weight: 500
+    }
+
+    .nav-center {
+      display: flex;
+      gap: 1.6rem;
+      list-style: none
+    }
+
+    .nav-center a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: .92rem;
+      font-weight: 600;
+      transition: color .2s;
+      position: relative
+    }
+
+    .nav-center a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--gold);
+      border-radius: 2px;
+      transform: scaleX(0);
+      transition: transform .2s
+    }
+
+    .nav-center a:hover {
+      color: var(--brown)
+    }
+
+    .nav-center a:hover::after {
+      transform: scaleX(1)
     }
 
     .nav-right {
       display: flex;
       align-items: center;
-      gap: .6rem
+      gap: .8rem
     }
 
-    .nav-links {
-      display: flex;
-      gap: 1.4rem;
-      list-style: none
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: var(--muted);
-      font-size: .9rem;
-      font-weight: 500;
-      transition: color .2s
-    }
-
-    .nav-links a:hover {
-      color: var(--brown)
-    }
-
-    .cart-btn {
+    .cart-icon-btn {
+      position: relative;
       background: var(--brown);
-      color: #fff;
       border: none;
-      border-radius: 999px;
-      padding: .4rem 1rem;
-      cursor: pointer;
-      font-weight: 600;
-      font-size: .85rem;
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
       display: flex;
       align-items: center;
-      gap: .35rem;
-      white-space: nowrap;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.15rem;
+      transition: background .2s;
       flex-shrink: 0
     }
 
-    .cart-btn:hover {
+    .cart-icon-btn:hover {
       background: var(--brown2)
     }
 
     .cart-badge {
+      position: absolute;
+      bottom: -3px;
+      right: -3px;
       background: var(--gold);
       color: #fff;
       border-radius: 50%;
       width: 18px;
       height: 18px;
-      font-size: .68rem;
-      font-weight: 700;
+      font-size: .62rem;
+      font-weight: 800;
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-shrink: 0
+      border: 2px solid #fff9f2
     }
 
     .hamburger {
@@ -143,43 +172,46 @@
       cursor: pointer;
       flex-direction: column;
       gap: 5px;
-      padding: 4px;
+      padding: 5px;
       flex-shrink: 0
     }
 
     .hamburger span {
       display: block;
-      width: 22px;
-      height: 2px;
+      width: 24px;
+      height: 2.5px;
       background: var(--brown);
-      border-radius: 2px;
+      border-radius: 3px;
       transition: all .3s
     }
 
     .hamburger.open span:nth-child(1) {
-      transform: translateY(7px) rotate(45deg)
+      transform: translateY(7.5px) rotate(45deg)
     }
 
     .hamburger.open span:nth-child(2) {
-      opacity: 0
+      opacity: 0;
+      transform: scaleX(0)
     }
 
     .hamburger.open span:nth-child(3) {
-      transform: translateY(-7px) rotate(-45deg)
+      transform: translateY(-7.5px) rotate(-45deg)
     }
 
     .mobile-menu {
       display: none;
       position: fixed;
-      top: 60px;
+      top: 80px;
       left: 0;
       right: 0;
       background: #fff9f2;
-      border-bottom: 1.5px solid var(--border);
+      border-bottom: 2px solid var(--border);
       z-index: 199;
-      box-shadow: 0 8px 24px #2d1f0e22;
+      box-shadow: 0 10px 30px #2d1f0e25;
       flex-direction: column;
-      padding: .5rem 0
+      align-items: center;
+      justify-content: center;
+      padding: 1rem 0
     }
 
     .mobile-menu.open {
@@ -187,13 +219,19 @@
     }
 
     .mobile-menu a {
-      padding: .85rem 1.5rem;
+      padding: .9rem 2rem;
       text-decoration: none;
       color: var(--muted);
-      font-weight: 600;
-      font-size: .95rem;
+      font-weight: 700;
+      font-size: 1rem;
+      width: 100%;
+      text-align: center;
       border-bottom: 1px solid #f0e6d6;
       transition: background .15s
+    }
+
+    .mobile-menu a:last-child {
+      border-bottom: none
     }
 
     .mobile-menu a:hover {
@@ -201,34 +239,71 @@
       color: var(--brown)
     }
 
-    .mobile-menu a:last-child {
-      border-bottom: none
-    }
-
     /* HERO */
     .hero {
-      background: linear-gradient(160deg, #f7efe2 0%, #ede0c8 60%, #e4d0b0 100%);
-      padding: 3.5rem 1.5rem;
-      text-align: center
+      min-height: 100vh;
+      background: linear-gradient(160deg, #fdf0eb 0%, #f5e0d0 40%, #ede0c8 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 3rem 1.5rem;
+      position: relative;
+      overflow: hidden
+    }
+
+    .hero::before {
+      content: '🎂';
+      position: absolute;
+      top: -20px;
+      right: 5%;
+      font-size: 8rem;
+      opacity: .06;
+      transform: rotate(20deg)
+    }
+
+    .hero::after {
+      content: '🌸';
+      position: absolute;
+      bottom: 10%;
+      left: 3%;
+      font-size: 7rem;
+      opacity: .06;
+      transform: rotate(-15deg)
     }
 
     .hero-badge {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
       background: #fff;
       color: var(--brown);
-      border: 1px solid var(--gold);
+      border: 1.5px solid var(--gold);
       border-radius: 999px;
-      padding: .28rem .9rem;
-      font-size: .78rem;
-      font-weight: 600;
-      margin-bottom: .9rem
+      padding: .35rem 1.1rem;
+      font-size: .82rem;
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+      box-shadow: 0 2px 8px #c9973a18
+    }
+
+    .hero-logo-img {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+      border-radius: 50%;
+      background: #fdf0eb;
+      margin-bottom: 1.2rem;
+      box-shadow: 0 8px 30px #c9973a30
     }
 
     .hero h1 {
-      font-size: clamp(1.8rem, 5vw, 2.8rem);
-      font-weight: 800;
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 900;
       color: var(--brown);
-      line-height: 1.2
+      line-height: 1.15;
+      margin-bottom: .8rem
     }
 
     .hero h1 span {
@@ -237,44 +312,46 @@
 
     .hero p {
       color: var(--muted);
-      margin: .9rem auto;
-      max-width: 520px;
-      font-size: .95rem;
-      line-height: 1.75
+      max-width: 540px;
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      line-height: 1.8;
+      margin-bottom: 1.6rem
     }
 
     .hero-btns {
       display: flex;
-      gap: .7rem;
+      gap: .8rem;
       justify-content: center;
       flex-wrap: wrap;
-      margin-top: 1rem
+      margin-bottom: 2rem
     }
 
     .btn-primary {
       background: var(--brown);
       color: #fff;
-      padding: .7rem 1.6rem;
+      padding: .85rem 2rem;
       border-radius: 999px;
       border: none;
       font-weight: 700;
-      font-size: .9rem;
+      font-size: 1rem;
       cursor: pointer;
-      transition: background .2s
+      transition: all .2s;
+      box-shadow: 0 4px 14px #6b3f1f30
     }
 
     .btn-primary:hover {
-      background: var(--brown2)
+      background: var(--brown2);
+      transform: translateY(-1px)
     }
 
     .btn-outline {
       background: transparent;
       color: var(--brown);
-      padding: .7rem 1.6rem;
+      padding: .85rem 2rem;
       border-radius: 999px;
       border: 2px solid var(--brown);
       font-weight: 700;
-      font-size: .9rem;
+      font-size: 1rem;
       cursor: pointer;
       transition: all .2s
     }
@@ -287,63 +364,68 @@
     .hero-stats {
       display: flex;
       justify-content: center;
-      gap: 2rem;
-      margin-top: 1.8rem;
-      flex-wrap: wrap
+      gap: 3rem;
+      flex-wrap: wrap;
+      background: #fff8;
+      backdrop-filter: blur(4px);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.2rem 2.5rem
     }
 
     .stat-num {
-      font-size: 1.4rem;
-      font-weight: 800;
+      font-size: 1.7rem;
+      font-weight: 900;
       color: var(--brown)
     }
 
     .stat-label {
-      font-size: .73rem;
+      font-size: .75rem;
       color: var(--muted);
-      margin-top: .1rem;
-      text-align: center
+      margin-top: .15rem;
+      text-align: center;
+      font-weight: 500
     }
 
     /* SECTIONS */
     .section {
-      padding: 2.5rem 1.25rem;
+      padding: 3.5rem 2rem;
       max-width: 1100px;
       margin: 0 auto
     }
 
     .section-head {
       text-align: center;
-      margin-bottom: 1.8rem
+      margin-bottom: 2.2rem
     }
 
     .section-head h2 {
-      font-size: 1.6rem;
-      font-weight: 800;
+      font-size: clamp(1.6rem, 3vw, 2.1rem);
+      font-weight: 900;
       color: var(--brown)
     }
 
     .section-head p {
       color: var(--muted);
-      margin-top: .35rem;
-      font-size: .9rem
+      margin-top: .45rem;
+      font-size: 1rem
     }
 
     .divider {
-      width: 46px;
-      height: 3px;
+      width: 52px;
+      height: 3.5px;
       background: linear-gradient(90deg, var(--gold), var(--brown));
       border-radius: 4px;
-      margin: .5rem auto 0
+      margin: .6rem auto 0
     }
 
     /* MENU */
     .tabs {
       display: flex;
-      gap: .45rem;
+      gap: .5rem;
       justify-content: center;
       flex-wrap: wrap;
-      margin-bottom: 1.6rem
+      margin-bottom: 2rem
     }
 
     .tab {
@@ -351,9 +433,9 @@
       color: var(--muted);
       border: 1.5px solid var(--border);
       border-radius: 999px;
-      padding: .38rem 1rem;
-      font-size: .82rem;
-      font-weight: 600;
+      padding: .42rem 1.1rem;
+      font-size: .85rem;
+      font-weight: 700;
       cursor: pointer;
       transition: all .2s
     }
@@ -367,80 +449,95 @@
 
     .menu-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-      gap: 1.2rem
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.5rem
     }
 
     .cake-card {
       background: #fff;
-      border-radius: 16px;
+      border-radius: 18px;
       overflow: hidden;
       border: 1px solid var(--border);
       transition: transform .2s, box-shadow .2s
     }
 
     .cake-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 24px #6b3f1f18
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px #6b3f1f1a
     }
 
-    .cake-img {
+    .cake-img-wrap {
       width: 100%;
-      height: 150px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 4rem;
+      height: 200px;
+      overflow: hidden;
       position: relative;
-      background: linear-gradient(135deg, #f7efe2, #ede0c8)
+      background: #f5ede3
+    }
+
+    .cake-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .3s
+    }
+
+    .cake-card:hover .cake-img-wrap img {
+      transform: scale(1.05)
     }
 
     .cake-tag {
       position: absolute;
-      top: 8px;
-      left: 8px;
+      top: 10px;
+      left: 10px;
       background: var(--gold);
       color: #fff;
-      font-size: .68rem;
-      font-weight: 700;
-      padding: .18rem .55rem;
-      border-radius: 999px
+      font-size: .7rem;
+      font-weight: 800;
+      padding: .22rem .6rem;
+      border-radius: 999px;
+      z-index: 1
     }
 
     .cake-info {
-      padding: .9rem
+      padding: 1.1rem
     }
 
     .cake-name {
-      font-weight: 700;
+      font-weight: 800;
       color: var(--dark);
-      font-size: .93rem
+      font-size: 1.05rem
     }
 
     .cake-desc {
       color: var(--muted);
-      font-size: .78rem;
-      margin: .28rem 0 .7rem;
-      line-height: 1.5
+      font-size: .83rem;
+      margin: .3rem 0 .85rem;
+      line-height: 1.55
     }
 
     .cake-footer {
       display: flex;
       align-items: center;
-      justify-content: space-between
+      justify-content: space-between;
+      gap: .5rem
     }
 
     .cake-price {
-      font-weight: 800;
-      font-size: .95rem;
+      font-weight: 900;
+      font-size: 1.05rem;
       color: var(--brown)
     }
 
     .cake-price small {
-      font-size: .68rem;
+      font-size: .7rem;
       font-weight: 500;
       color: var(--muted);
       display: block
+    }
+
+    .card-btns {
+      display: flex;
+      gap: .4rem
     }
 
     .add-btn {
@@ -448,12 +545,12 @@
       color: var(--brown);
       border: 1.5px solid var(--gold);
       border-radius: 999px;
-      padding: .32rem .8rem;
+      padding: .35rem .85rem;
       cursor: pointer;
       font-weight: 700;
       font-size: .8rem;
       transition: all .2s;
-      min-width: 68px
+      min-width: 65px
     }
 
     .add-btn:hover {
@@ -468,10 +565,27 @@
       border-color: #6ee7b7
     }
 
+    .order-now-btn {
+      background: var(--brown);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: .35rem .85rem;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: .8rem;
+      transition: all .2s;
+      white-space: nowrap
+    }
+
+    .order-now-btn:hover {
+      background: var(--brown2)
+    }
+
     /* GALLERY */
     .gallery-section {
       background: var(--cream2);
-      padding: 2.5rem 1.25rem
+      padding: 3.5rem 2rem
     }
 
     .gallery-inner {
@@ -481,29 +595,36 @@
 
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-      gap: .65rem;
-      margin-top: 1.4rem
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: .85rem;
+      margin-top: 1.6rem
     }
 
     .gallery-item {
       aspect-ratio: 1;
-      border-radius: 12px;
+      border-radius: 14px;
       overflow: hidden;
       border: 2px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-      background: linear-gradient(135deg, #f7efe2, #ede0c8);
       cursor: pointer;
       transition: transform .2s, box-shadow .2s;
-      position: relative
+      position: relative;
+      background: #f5ede3
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .3s
     }
 
     .gallery-item:hover {
       transform: scale(1.04);
-      box-shadow: 0 6px 16px #6b3f1f22
+      box-shadow: 0 8px 20px #6b3f1f22
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.08)
     }
 
     .gallery-label {
@@ -513,21 +634,41 @@
       right: 0;
       background: linear-gradient(transparent, #2d1f0ecc);
       color: #fff;
-      font-size: .65rem;
-      font-weight: 600;
-      padding: .4rem .5rem .35rem;
+      font-size: .7rem;
+      font-weight: 700;
+      padding: .5rem .6rem .4rem;
       text-align: center
+    }
+
+    .gallery-order-btn {
+      position: absolute;
+      top: 7px;
+      right: 7px;
+      background: var(--brown);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: .25rem .65rem;
+      font-size: .68rem;
+      font-weight: 700;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity .2s
+    }
+
+    .gallery-item:hover .gallery-order-btn {
+      opacity: 1
     }
 
     .gallery-cta {
       text-align: center;
-      margin-top: 1.4rem
+      margin-top: 1.6rem
     }
 
     .gallery-cta p {
       color: var(--muted);
-      font-size: .85rem;
-      margin-bottom: .9rem
+      font-size: .88rem;
+      margin-bottom: 1rem
     }
 
     .insta-btn {
@@ -538,69 +679,71 @@
       color: #fff;
       border: none;
       border-radius: 999px;
-      padding: .6rem 1.4rem;
+      padding: .65rem 1.5rem;
       font-weight: 700;
-      font-size: .9rem;
+      font-size: .92rem;
       cursor: pointer;
-      text-decoration: none
+      text-decoration: none;
+      transition: opacity .2s
     }
 
     .insta-btn:hover {
       opacity: .88
     }
 
-    /* CUSTOM — mobile friendly */
+    /* CUSTOM */
     .custom-wrap {
-      padding: 1.5rem 1.25rem 2rem;
+      padding: 2rem 2rem 2.5rem;
       max-width: 1100px;
       margin: 0 auto
     }
 
     .custom-section {
-      background: linear-gradient(135deg, #f3ede3, #ede0c8);
-      border-radius: 18px;
-      padding: 2rem 1.5rem;
-      text-align: center
+      background: linear-gradient(135deg, #fdf0eb, #ede0c8);
+      border-radius: 22px;
+      padding: 3rem 2rem;
+      text-align: center;
+      border: 1px solid var(--border)
     }
 
     .custom-section h3 {
-      font-size: 1.3rem;
-      font-weight: 800;
+      font-size: clamp(1.4rem, 3vw, 1.8rem);
+      font-weight: 900;
       color: var(--brown);
-      margin-bottom: .5rem
+      margin-bottom: .7rem
     }
 
     .custom-section p {
       color: var(--muted);
-      font-size: .9rem;
-      max-width: 480px;
-      margin: 0 auto 1.2rem;
-      line-height: 1.7
+      font-size: .98rem;
+      max-width: 520px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.8
     }
 
     .custom-features {
       display: flex;
       justify-content: center;
-      gap: .5rem;
+      gap: .6rem;
       flex-wrap: wrap;
-      margin-bottom: 1.3rem
+      margin-bottom: 1.6rem
     }
 
     .feat-pill {
       background: #fff;
-      border: 1px solid var(--border);
+      border: 1.5px solid var(--border);
       border-radius: 999px;
-      padding: .3rem .8rem;
-      font-size: .78rem;
+      padding: .4rem 1rem;
+      font-size: .83rem;
       color: var(--brown);
-      font-weight: 600;
+      font-weight: 700;
       white-space: nowrap
     }
 
     /* CONTACT */
     .contact-full {
       background: linear-gradient(160deg, #2d1f0e 0%, #4a2e10 100%);
-      padding: 3rem 1.25rem
+      padding: 4rem 2rem
     }
 
     .contact-full-inner {
@@ -610,8 +753,8 @@
 
     .contact-full h2 {
       text-align: center;
-      font-size: 1.6rem;
-      font-weight: 800;
+      font-size: clamp(1.6rem, 3vw, 2.1rem);
+      font-weight: 900;
       color: var(--gold2);
       margin-bottom: .35rem
     }
@@ -619,122 +762,152 @@
     .contact-full .sub {
       text-align: center;
       color: #c9a06a;
-      font-size: .9rem;
+      font-size: .95rem;
       margin-bottom: .5rem
     }
 
     .cdivider {
-      width: 46px;
+      width: 52px;
       height: 3px;
       background: linear-gradient(90deg, var(--gold), var(--gold2));
       border-radius: 4px;
-      margin: .5rem auto 2rem
+      margin: .5rem auto 2.2rem
     }
 
     .contact-cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-      margin-bottom: 2rem
+      gap: 1.1rem;
+      margin-bottom: 2.2rem
     }
 
     .cc {
       background: #ffffff12;
       border: 1px solid #ffffff22;
-      border-radius: 16px;
-      padding: 1.4rem 1.1rem;
+      border-radius: 18px;
+      padding: 1.6rem 1.3rem;
       text-align: center;
-      transition: background .2s
+      transition: all .25s;
+      cursor: pointer;
+      text-decoration: none;
+      display: block
     }
 
     .cc:hover {
-      background: #ffffff1e
+      background: #ffffff22;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px #00000030
     }
 
     .cc .cicon {
-      font-size: 2rem;
-      margin-bottom: .6rem
+      font-size: 2.2rem;
+      margin-bottom: .7rem
     }
 
     .cc h4 {
       color: var(--gold2);
-      font-size: .9rem;
-      font-weight: 700;
-      margin-bottom: .35rem
+      font-size: .95rem;
+      font-weight: 800;
+      margin-bottom: .4rem
     }
 
     .cc p {
       color: #d4b896;
-      font-size: .82rem;
-      line-height: 1.6
+      font-size: .83rem;
+      line-height: 1.65
     }
 
-    .cc a {
+    .cc .cc-link {
       color: var(--gold2);
-      text-decoration: none;
-      font-weight: 600;
+      font-weight: 700;
+      font-size: .83rem;
       display: inline-block;
       margin-top: .4rem
-    }
-
-    .cc a:hover {
-      text-decoration: underline
     }
 
     .social-row {
       display: flex;
       justify-content: center;
-      gap: .8rem;
+      gap: .9rem;
       flex-wrap: wrap
     }
 
     .social-btn {
       display: inline-flex;
       align-items: center;
-      gap: .5rem;
+      gap: .55rem;
       border-radius: 999px;
-      padding: .65rem 1.4rem;
+      padding: .75rem 1.8rem;
       font-weight: 700;
-      font-size: .9rem;
+      font-size: .95rem;
       cursor: pointer;
       text-decoration: none;
       border: none;
-      transition: opacity .2s;
+      transition: all .2s;
       white-space: nowrap
     }
 
     .social-btn:hover {
-      opacity: .85
+      opacity: .87;
+      transform: translateY(-2px)
     }
 
     .wa-btn {
       background: #25d366;
-      color: #fff
+      color: #fff;
+      box-shadow: 0 4px 14px #25d36640
     }
 
     .ig-btn {
       background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
-      color: #fff
+      color: #fff;
+      box-shadow: 0 4px 14px #fd1d1d40
     }
 
     .contact-tagline {
       text-align: center;
       color: #7a5230;
       font-size: .8rem;
-      margin-top: 1.8rem
+      margin-top: 2rem
+    }
+
+    /* FLOATING WA */
+    .float-wa {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 150;
+      background: #25d366;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 54px;
+      height: 54px;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 18px #25d36660;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform .2s
+    }
+
+    .float-wa:hover {
+      transform: scale(1.1)
     }
 
     footer {
       background: #1a0f05;
       color: #7a5230;
       text-align: center;
-      padding: 1.2rem;
-      font-size: .8rem
+      padding: 1.4rem;
+      font-size: .82rem
     }
 
     footer span {
       color: var(--gold2);
-      font-weight: 600
+      font-weight: 700
     }
 
     footer a {
@@ -758,7 +931,7 @@
 
     .cart-panel {
       background: #fff;
-      width: 360px;
+      width: 380px;
       max-width: 100vw;
       height: 100%;
       display: flex;
@@ -767,7 +940,7 @@
 
     .cart-header {
       background: #f7efe2;
-      padding: 1.1rem 1.4rem;
+      padding: 1.2rem 1.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -776,14 +949,14 @@
 
     .cart-header h3 {
       color: var(--brown);
-      font-weight: 700;
-      font-size: 1rem
+      font-weight: 800;
+      font-size: 1.05rem
     }
 
     .close-btn {
       background: none;
       border: none;
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       cursor: pointer;
       color: var(--muted)
     }
@@ -795,28 +968,31 @@
     .cart-items {
       flex: 1;
       overflow-y: auto;
-      padding: .9rem 1.3rem
+      padding: 1rem 1.4rem
     }
 
     .empty-cart {
       text-align: center;
       color: var(--muted);
       margin-top: 3rem;
-      font-size: .9rem
+      font-size: .93rem
     }
 
     .cart-item {
       display: flex;
       align-items: center;
-      gap: .75rem;
-      padding: .75rem 0;
+      gap: .8rem;
+      padding: .8rem 0;
       border-bottom: 1px solid #f0e6d6
     }
 
-    .cart-item-emoji {
-      font-size: 1.8rem;
-      width: 40px;
-      text-align: center
+    .cart-item-img {
+      width: 46px;
+      height: 46px;
+      border-radius: 8px;
+      object-fit: cover;
+      flex-shrink: 0;
+      background: #f5ede3
     }
 
     .cart-item-info {
@@ -825,21 +1001,21 @@
     }
 
     .cart-item-name {
-      font-weight: 600;
-      font-size: .85rem;
+      font-weight: 700;
+      font-size: .88rem;
       color: var(--dark)
     }
 
     .cart-item-price {
       color: var(--brown);
-      font-size: .82rem;
-      font-weight: 700
+      font-size: .83rem;
+      font-weight: 800
     }
 
     .qty-ctrl {
       display: flex;
       align-items: center;
-      gap: .35rem;
+      gap: .4rem;
       margin-top: .25rem
     }
 
@@ -847,8 +1023,8 @@
       background: var(--cream3);
       border: 1px solid var(--border);
       border-radius: 50%;
-      width: 21px;
-      height: 21px;
+      width: 22px;
+      height: 22px;
       cursor: pointer;
       font-weight: 700;
       font-size: .82rem;
@@ -864,9 +1040,9 @@
     }
 
     .qty-num {
-      font-size: .83rem;
-      font-weight: 600;
-      min-width: 16px;
+      font-size: .85rem;
+      font-weight: 700;
+      min-width: 18px;
       text-align: center
     }
 
@@ -875,7 +1051,7 @@
       border: none;
       color: #fca5a5;
       cursor: pointer;
-      font-size: 1rem;
+      font-size: 1.05rem;
       flex-shrink: 0
     }
 
@@ -884,7 +1060,7 @@
     }
 
     .cart-footer {
-      padding: 1.1rem 1.3rem;
+      padding: 1.2rem 1.5rem;
       border-top: 1px solid var(--border);
       background: #faf7f2
     }
@@ -892,9 +1068,9 @@
     .cart-total {
       display: flex;
       justify-content: space-between;
-      font-weight: 700;
-      font-size: .97rem;
-      margin-bottom: .9rem;
+      font-weight: 800;
+      font-size: 1rem;
+      margin-bottom: 1rem;
       color: var(--dark)
     }
 
@@ -904,10 +1080,11 @@
       color: #fff;
       border: none;
       border-radius: 999px;
-      padding: .75rem;
+      padding: .8rem;
       font-weight: 700;
-      font-size: .95rem;
-      cursor: pointer
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background .2s
     }
 
     .checkout-btn:hover {
@@ -932,31 +1109,31 @@
 
     .modal {
       background: #fff;
-      border-radius: 18px;
-      padding: 1.6rem;
+      border-radius: 20px;
+      padding: 1.8rem;
       width: 100%;
-      max-width: 430px;
+      max-width: 440px;
       max-height: 90vh;
       overflow-y: auto
     }
 
     .modal h3 {
       color: var(--brown);
-      font-weight: 800;
-      margin-bottom: 1.1rem;
-      font-size: 1.1rem
+      font-weight: 900;
+      margin-bottom: 1.2rem;
+      font-size: 1.15rem
     }
 
     .form-group {
-      margin-bottom: .9rem
+      margin-bottom: 1rem
     }
 
     .form-group label {
       display: block;
-      font-size: .8rem;
-      font-weight: 600;
+      font-size: .82rem;
+      font-weight: 700;
       color: var(--muted);
-      margin-bottom: .3rem
+      margin-bottom: .32rem
     }
 
     .form-group input,
@@ -964,9 +1141,9 @@
     .form-group select {
       width: 100%;
       border: 1.5px solid var(--border);
-      border-radius: 10px;
-      padding: .55rem .85rem;
-      font-size: .92rem;
+      border-radius: 11px;
+      padding: .6rem .9rem;
+      font-size: .93rem;
       outline: none;
       background: #faf7f2;
       color: var(--dark);
@@ -981,7 +1158,7 @@
     }
 
     .form-group textarea {
-      height: 75px;
+      height: 78px;
       resize: vertical
     }
 
@@ -989,10 +1166,10 @@
       background: #fef9c3;
       border: 1px solid #fde68a;
       border-radius: 8px;
-      padding: .45rem .85rem;
+      padding: .45rem .9rem;
       font-size: .8rem;
       color: #92400e;
-      font-weight: 600;
+      font-weight: 700;
       display: inline-flex;
       align-items: center;
       gap: .35rem;
@@ -1001,16 +1178,16 @@
 
     .order-summary {
       background: #f7efe2;
-      border-radius: 10px;
-      padding: .85rem;
+      border-radius: 11px;
+      padding: .9rem;
       margin-bottom: .9rem;
-      font-size: .82rem
+      font-size: .83rem
     }
 
     .order-summary-row {
       display: flex;
       justify-content: space-between;
-      padding: .18rem 0;
+      padding: .2rem 0;
       color: var(--muted)
     }
 
@@ -1019,26 +1196,30 @@
       justify-content: space-between;
       padding: .45rem 0 0;
       border-top: 1px solid var(--border);
-      font-weight: 800;
+      font-weight: 900;
       color: var(--brown);
       margin-top: .3rem
     }
 
     .place-btn {
       width: 100%;
-      background: var(--brown);
+      background: #25d366;
       color: #fff;
       border: none;
       border-radius: 999px;
-      padding: .75rem;
+      padding: .8rem;
       font-weight: 700;
-      font-size: .95rem;
+      font-size: 1rem;
       cursor: pointer;
-      margin-top: .4rem
+      margin-top: .5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem
     }
 
     .place-btn:hover {
-      background: var(--brown2)
+      background: #1ebe5a
     }
 
     .cancel-btn {
@@ -1046,12 +1227,12 @@
       background: none;
       border: 1.5px solid var(--border);
       border-radius: 999px;
-      padding: .65rem;
+      padding: .68rem;
       font-weight: 600;
-      font-size: .88rem;
+      font-size: .9rem;
       cursor: pointer;
       color: var(--muted);
-      margin-top: .4rem
+      margin-top: .5rem
     }
 
     .cancel-btn:hover {
@@ -1064,27 +1245,27 @@
     }
 
     .success-modal .check {
-      font-size: 3rem;
-      margin-bottom: .4rem
+      font-size: 3.2rem;
+      margin-bottom: .5rem
     }
 
     .success-modal h3 {
       color: #059669;
-      font-size: 1.2rem;
-      font-weight: 800
+      font-size: 1.25rem;
+      font-weight: 900
     }
 
     .success-modal p {
       color: var(--muted);
-      margin: .5rem 0 1rem;
-      font-size: .87rem;
-      line-height: 1.7
+      margin: .6rem 0 1.1rem;
+      font-size: .9rem;
+      line-height: 1.75
     }
 
     @keyframes fadeIn {
       from {
         opacity: 0;
-        transform: translateY(6px)
+        transform: translateY(8px)
       }
 
       to {
@@ -1094,11 +1275,33 @@
     }
 
     .cake-card {
-      animation: fadeIn .28s ease both
+      animation: fadeIn .3s ease both
+    }
+
+    /* PLACEHOLDER img style */
+    .ph-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block
     }
 
     @media(max-width:640px) {
-      .nav-links {
+      nav {
+        height: 70px;
+        padding: 0 1rem
+      }
+
+      .logo img {
+        height: 50px;
+        width: 50px
+      }
+
+      .logo-name {
+        font-size: 1rem
+      }
+
+      .nav-center {
         display: none
       }
 
@@ -1106,31 +1309,62 @@
         display: flex
       }
 
+      .mobile-menu {
+        top: 70px
+      }
+
       .hero {
-        padding: 2.5rem 1.1rem
+        padding: 2rem 1.2rem;
+        min-height: 100svh
+      }
+
+      .hero-logo-img {
+        width: 90px;
+        height: 90px
+      }
+
+      .hero h1 {
+        font-size: 2.2rem
       }
 
       .hero-stats {
-        gap: 1.4rem
+        gap: 1.5rem;
+        padding: 1rem 1.5rem
+      }
+
+      .section {
+        padding: 2.5rem 1.1rem
       }
 
       .menu-grid {
-        grid-template-columns: repeat(1, 1fr);
-        gap: .9rem
+        grid-template-columns: 1fr;
+        gap: 1rem
       }
 
-      .cake-img {
-        height: 120px;
-        font-size: 3rem
-      }
-
-      .cake-info {
-        padding: .75rem
+      .cake-img-wrap {
+        height: 200px
       }
 
       .gallery-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: .5rem
+        grid-template-columns: repeat(2, 1fr);
+        gap: .6rem
+      }
+
+      .custom-wrap {
+        padding: 1.5rem 1.1rem 2rem
+      }
+
+      .custom-section {
+        padding: 2rem 1.2rem
+      }
+
+      .custom-features {
+        gap: .4rem
+      }
+
+      .feat-pill {
+        font-size: .78rem;
+        padding: .32rem .8rem
       }
 
       .contact-cards {
@@ -1142,21 +1376,12 @@
         align-items: center
       }
 
-      .custom-section {
-        padding: 1.5rem 1rem
-      }
-
-      .custom-section h3 {
-        font-size: 1.15rem
-      }
-
-      .custom-features {
-        gap: .4rem
-      }
-
-      .feat-pill {
-        font-size: .73rem;
-        padding: .26rem .65rem
+      .float-wa {
+        width: 48px;
+        height: 48px;
+        font-size: 1.3rem;
+        bottom: 1rem;
+        right: 1rem
       }
     }
   </style>
@@ -1166,10 +1391,18 @@
 
   <nav>
     <div class="logo">
-      <div class="logo-circle">🎂</div>
-      <div class="logo-text">Cake <span>Station</span></div>
+      <img src="https://i.imgur.com/placeholder_logo.png"
+        onerror="this.style.display='none';this.nextSibling.style.display='flex'" alt="Cake Station Logo"
+        style="height:60px;width:60px;object-fit:contain;border-radius:50%;background:#fdf0eb" />
+      <div
+        style="display:none;width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,#f2c4b8,#c9973a);align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0">
+        🎂</div>
+      <div class="logo-text">
+        <div class="logo-name">Cake <span>Station</span></div>
+        <div class="logo-tagline">Baked with love</div>
+      </div>
     </div>
-    <ul class="nav-links">
+    <ul class="nav-center">
       <li><a href="#home">Home</a></li>
       <li><a href="#menu">Menu</a></li>
       <li><a href="#gallery">Gallery</a></li>
@@ -1177,7 +1410,9 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="nav-right">
-      <button class="cart-btn" onclick="openCart()">🛒 Cart <span class="cart-badge" id="cartBadge">0</span></button>
+      <button class="cart-icon-btn" onclick="openCart()" aria-label="Cart">
+        🛒<span class="cart-badge" id="cartBadge">0</span>
+      </button>
       <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
@@ -1194,13 +1429,15 @@
 
   <div id="home" class="hero">
     <div class="hero-badge">✨ Homemade · Faisalabad</div>
+    <img class="hero-logo-img" src="https://i.imgur.com/placeholder_logo.png" onerror="this.style.display='none'"
+      alt="Cake Station" />
     <h1>Your Dream Cake,<br><span>Made Just for You</span></h1>
     <p>Customise your cakes according to your choice in reasonable prices and make your day truly memorable.</p>
     <div class="hero-btns">
       <button class="btn-primary" onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">Order
         Now 🎂</button>
       <button class="btn-outline"
-        onclick="document.getElementById('custom').scrollIntoView({behavior:'smooth'})">Customise Cake</button>
+        onclick="document.getElementById('custom').scrollIntoView({behavior:'smooth'})">Customise Cake 🎨</button>
     </div>
     <div class="hero-stats">
       <div class="stat">
@@ -1221,7 +1458,7 @@
   <section class="section" id="menu">
     <div class="section-head">
       <h2>Our Menu</h2>
-      <p>Fresh, beautiful, and handcrafted for every occasion 🍰</p>
+      <p>Fresh, beautiful & handcrafted for every occasion 🍰</p>
       <div class="divider"></div>
     </div>
     <div class="tabs" id="tabBar"></div>
@@ -1232,47 +1469,10 @@
     <div class="gallery-inner">
       <div class="section-head">
         <h2>Our Previous Cakes</h2>
-        <p>A glimpse of the love we've baked 🎂</p>
+        <p>A glimpse of the love we've baked 🎂 — tap any to order the same!</p>
         <div class="divider"></div>
       </div>
-      <div class="gallery-grid">
-        <div class="gallery-item"><span>🌹</span>
-          <div class="gallery-label">Rose Cake</div>
-        </div>
-        <div class="gallery-item"><span>🎂</span>
-          <div class="gallery-label">Birthday</div>
-        </div>
-        <div class="gallery-item"><span>🏆</span>
-          <div class="gallery-label">Tier Cake</div>
-        </div>
-        <div class="gallery-item"><span>🧁</span>
-          <div class="gallery-label">Cupcakes</div>
-        </div>
-        <div class="gallery-item"><span>👶</span>
-          <div class="gallery-label">Month Cake</div>
-        </div>
-        <div class="gallery-item"><span>🍫</span>
-          <div class="gallery-label">Chocolate</div>
-        </div>
-        <div class="gallery-item"><span>💍</span>
-          <div class="gallery-label">Wedding</div>
-        </div>
-        <div class="gallery-item"><span>🌸</span>
-          <div class="gallery-label">Floral</div>
-        </div>
-        <div class="gallery-item"><span>🎠</span>
-          <div class="gallery-label">Theme</div>
-        </div>
-        <div class="gallery-item"><span>🍓</span>
-          <div class="gallery-label">Strawberry</div>
-        </div>
-        <div class="gallery-item"><span>🎁</span>
-          <div class="gallery-label">Gift Cake</div>
-        </div>
-        <div class="gallery-item"><span>🍮</span>
-          <div class="gallery-label">Brownies</div>
-        </div>
-      </div>
+      <div class="gallery-grid" id="galleryGrid"></div>
       <div class="gallery-cta">
         <p>See 347+ more creations on our Instagram 📸</p>
         <a class="insta-btn" href="https://www.instagram.com/cake_station_fsd/" target="_blank">📸 View Full Gallery on
@@ -1285,16 +1485,17 @@
     <div class="custom-section">
       <h3>🎨 Custom Cake Orders</h3>
       <p>Want something truly unique? We customise cakes for birthdays, weddings, anniversaries, baby showers, and any
-        special occasion.</p>
+        special occasion — your design, your flavour, your story.</p>
       <div class="custom-features">
-        <span class="feat-pill">🎂 Themed</span>
-        <span class="feat-pill">🌸 Flower</span>
-        <span class="feat-pill">🏆 Tier</span>
-        <span class="feat-pill">👶 Month</span>
-        <span class="feat-pill">💍 Wedding</span>
-        <span class="feat-pill">🧁 Cupcakes</span>
+        <span class="feat-pill">🎂 Themed Cakes</span>
+        <span class="feat-pill">🌸 Flower Cakes</span>
+        <span class="feat-pill">🏆 Tier Cakes</span>
+        <span class="feat-pill">👶 Month Cakes</span>
+        <span class="feat-pill">💍 Wedding Cakes</span>
+        <span class="feat-pill">🧁 Cupcake Sets</span>
       </div>
-      <button class="btn-primary" onclick="openCustomModal()">Request Custom Cake ✨</button>
+      <button class="btn-primary" style="font-size:1rem;padding:.85rem 2.2rem" onclick="openCustomModal()">Request
+        Custom Cake ✨</button>
     </div>
   </div>
 
@@ -1304,35 +1505,40 @@
       <p class="sub">We'd love to bake something special for you 🎂</p>
       <div class="cdivider"></div>
       <div class="contact-cards">
-        <div class="cc">
-          <div class="cicon">📱</div>
+        <a class="cc" href="https://wa.me/923120737022" target="_blank">
+          <div class="cicon">💬</div>
           <h4>WhatsApp Us</h4>
-          <p>Chat directly for orders</p>
-          <a href="https://wa.me/923001234567" target="_blank">DM </a>
-        </div>
-        <div class="cc">
+          <p>Chat for orders, pricing & custom queries</p>
+          <span class="cc-link">+92 312 0737022 →</span>
+        </a>
+        <a class="cc" href="https://www.instagram.com/cake_station_fsd/" target="_blank">
           <div class="cicon">📸</div>
           <h4>Instagram</h4>
-          <p>Browse our portfolio & DM us to order</p>
-          <a href="https://www.instagram.com/cake_station_fsd/" target="_blank">@cake_station_fsd </a>
-        </div>
-        <div class="cc">
+          <p>Browse our portfolio & DM us to place orders</p>
+          <span class="cc-link">@cake_station_fsd →</span>
+        </a>
+        <div class="cc" style="cursor:default">
           <div class="cicon">📍</div>
           <h4>Location</h4>
-          <p>Faisalabad, Punjab, Pakistan<br>Home delivery in city</p>
+          <p>Faisalabad, Punjab, Pakistan<br>Home delivery within city</p>
         </div>
-        <div class="cc">
+        <div class="cc" style="cursor:default">
           <div class="cicon">🕐</div>
           <h4>Working Hours</h4>
           <p>Monday – Saturday<br>9:00 AM – 8:00 PM</p>
         </div>
+        <div class="cc" style="cursor:default">
+          <div class="cicon">💵</div>
+          <h4>Payment</h4>
+          <p>Cash on Delivery (COD)<br>Pay when your cake arrives</p>
+        </div>
       </div>
       <div class="social-row">
-        <a class="social-btn wa-btn" href="https://wa.me/923001234567" target="_blank">💬 Chat on WhatsApp</a>
+        <a class="social-btn wa-btn" href="https://wa.me/923120737022" target="_blank">💬 Chat on WhatsApp</a>
         <a class="social-btn ig-btn" href="https://www.instagram.com/cake_station_fsd/" target="_blank">📸 Follow on
           Instagram</a>
       </div>
-      <p class="contact-tagline">🎂 Cake Station · Customise your cakes, make your day memorable</p>
+      <p class="contact-tagline">🎂 Cake Station · Baked with love · Faisalabad</p>
     </div>
   </div>
 
@@ -1342,6 +1548,9 @@
     </p>
   </footer>
 
+  <a class="float-wa" href="https://wa.me/923120737022" target="_blank" title="Chat on WhatsApp">💬</a>
+
+  <!-- CART -->
   <div class="overlay" id="cartOverlay" onclick="closeCartOutside(event)">
     <div class="cart-panel">
       <div class="cart-header">
@@ -1358,6 +1567,7 @@
     </div>
   </div>
 
+  <!-- CHECKOUT MODAL -->
   <div class="modal-overlay" id="checkoutModal">
     <div class="modal" id="checkoutContent">
       <h3>Place Your Order 📦</h3>
@@ -1370,12 +1580,13 @@
       <div class="form-group"><label>Delivery Address</label><textarea id="custAddr"
           placeholder="House #, Street, Area, Faisalabad"></textarea></div>
       <div class="form-group"><label>Special Instructions (optional)</label><textarea id="custNote"
-          placeholder="Message on cake, flavour..."></textarea></div>
-      <button class="place-btn" onclick="placeOrder()">✅ Confirm Order</button>
+          placeholder="Message on cake, flavour preference..."></textarea></div>
+      <button class="place-btn" onclick="placeOrder()">💬 Send Order via WhatsApp</button>
       <button class="cancel-btn" onclick="closeCheckout()">Cancel</button>
     </div>
   </div>
 
+  <!-- CUSTOM MODAL -->
   <div class="modal-overlay" id="customModal">
     <div class="modal">
       <h3>🎨 Custom Cake Request</h3>
@@ -1419,36 +1630,73 @@
         </select>
       </div>
       <div class="form-group"><label>Event Date</label><input type="date" id="cDate" /></div>
-      <div class="form-group"><label>Design / Message</label><textarea id="cDesc"
-          placeholder="Describe your dream cake..."></textarea></div>
-      <button class="place-btn" onclick="submitCustom()">✨ Send Request</button>
+      <div class="form-group"><label>Design / Message on Cake</label><textarea id="cDesc"
+          placeholder="Describe your dream cake — theme, colours, message..."></textarea></div>
+      <button class="place-btn" onclick="submitCustom()">💬 Send via WhatsApp</button>
       <button class="cancel-btn" onclick="closeCustomModal()">Cancel</button>
     </div>
   </div>
 
+  <!-- GALLERY ORDER MODAL -->
+  <div class="modal-overlay" id="galleryOrderModal">
+    <div class="modal" id="galleryOrderContent">
+      <h3 id="galleryOrderTitle">Order This Cake</h3>
+      <p style="color:var(--muted);font-size:.88rem;margin-bottom:1.2rem;line-height:1.6">Fill in your details and we'll
+        confirm your order on WhatsApp!</p>
+      <div class="form-group"><label>Full Name</label><input type="text" id="gName" placeholder="Your full name" />
+      </div>
+      <div class="form-group"><label>Phone Number</label><input type="tel" id="gPhone" placeholder="03XX-XXXXXXX" />
+      </div>
+      <div class="form-group"><label>Delivery Address</label><textarea id="gAddr"
+          placeholder="House #, Street, Area, Faisalabad"></textarea></div>
+      <div class="form-group"><label>Special Requests (optional)</label><textarea id="gNote"
+          placeholder="Message on cake, colour preference..."></textarea></div>
+      <button class="place-btn" onclick="submitGalleryOrder()">💬 Send Order via WhatsApp</button>
+      <button class="cancel-btn" onclick="closeGalleryOrderModal()">Cancel</button>
+    </div>
+  </div>
+
   <script>
+    const WA = '923120737022';
+
+    // Placeholder images - replace src with real cake images
     const categories = {
       'Birthday Cakes': [
-        { id: 1, emoji: '🎂', name: 'Classic Birthday', desc: 'Sponge with cream frosting & your message', price: 1500, tag: 'Popular' },
-        { id: 2, emoji: '🎠', name: 'Themed Cake', desc: 'Cartoons, sports, florals & more', price: 2000, tag: 'Custom' },
-        { id: 3, emoji: '🏆', name: 'Tier Birthday', desc: '2–3 tier stacked celebration cake', price: 3000, tag: 'Premium' },
+        { id: 1, img: 'https://images.unsplash.com/photo-1562777717-dc6984f65a63?w=400&q=80', name: 'Classic Birthday', desc: 'Sponge with cream frosting & your message', price: 1500, tag: 'Popular' },
+        { id: 2, img: 'https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=400&q=80', name: 'Themed Cake', desc: 'Cartoons, sports, florals & more', price: 2000, tag: 'Custom' },
+        { id: 3, img: 'https://images.unsplash.com/photo-1623428454614-abaf00244e52?w=400&q=80', name: 'Tier Birthday', desc: '2–3 tier stacked celebration cake', price: 3000, tag: 'Premium' },
       ],
       'Flower Cakes': [
-        { id: 4, emoji: '🌸', name: 'Floral Cream Cake', desc: 'Buttercream flowers on light sponge', price: 2000, tag: 'Trending' },
-        { id: 5, emoji: '🌹', name: 'Rose Bouquet Cake', desc: 'Red & pink rose design for gifting', price: 2200, tag: 'Bestseller' },
+        { id: 4, img: 'https://images.unsplash.com/photo-1559620192-032c4bc4674e?w=400&q=80', name: 'Floral Cream Cake', desc: 'Buttercream flowers on light sponge', price: 2000, tag: 'Trending' },
+        { id: 5, img: 'https://images.unsplash.com/photo-1586788680434-30d324b2d46f?w=400&q=80', name: 'Rose Bouquet Cake', desc: 'Red & pink rose design, perfect for gifting', price: 2200, tag: 'Bestseller' },
       ],
       'Cupcakes': [
-        { id: 6, emoji: '🧁', name: 'Cupcake Set (6 pcs)', desc: 'Assorted flavours with swirl topping', price: 900, tag: '' },
-        { id: 7, emoji: '🍫', name: 'Choco Cupcakes (6)', desc: 'Dark chocolate sponge & ganache', price: 950, tag: '' },
+        { id: 6, img: 'https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=400&q=80', name: 'Cupcake Set (6 pcs)', desc: 'Assorted flavours with swirl topping', price: 900, tag: '' },
+        { id: 7, img: 'https://images.unsplash.com/photo-1587668178277-295251f900ce?w=400&q=80', name: 'Choco Cupcakes (6)', desc: 'Dark chocolate sponge & ganache', price: 950, tag: '' },
       ],
       'Special': [
-        { id: 8, emoji: '👶', name: 'Month Milestone', desc: 'Baby milestone monthly cake', price: 1800, tag: 'Cute' },
-        { id: 9, emoji: '🍫', name: 'Brownie Box', desc: '9 fudgy homemade chocolate brownies', price: 1200, tag: 'Gift' },
-        { id: 10, emoji: '💍', name: 'Wedding Cake', desc: 'Elegant white & gold for your big day', price: 4500, tag: 'Premium' },
+        { id: 8, img: 'https://images.unsplash.com/photo-1562777717-dc6984f65a63?w=400&q=80', name: 'Month Milestone', desc: 'Baby milestone monthly cake', price: 1800, tag: 'Cute' },
+        { id: 9, img: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400&q=80', name: 'Brownie Box', desc: '9 fudgy homemade chocolate brownies', price: 1200, tag: 'Gift' },
+        { id: 10, img: 'https://images.unsplash.com/photo-1535141192574-5d4897c12636?w=400&q=80', name: 'Wedding Cake', desc: 'Elegant white & gold for your big day', price: 4500, tag: 'Premium' },
       ]
     };
 
-    let cart = {}, activeTab = Object.keys(categories)[0];
+    const galleryItems = [
+      { img: 'https://images.unsplash.com/photo-1562777717-dc6984f65a63?w=400&q=80', label: 'Rose Cake' },
+      { img: 'https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=400&q=80', label: 'Birthday' },
+      { img: 'https://images.unsplash.com/photo-1623428454614-abaf00244e52?w=400&q=80', label: 'Tier Cake' },
+      { img: 'https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=400&q=80', label: 'Cupcakes' },
+      { img: 'https://images.unsplash.com/photo-1562777717-dc6984f65a63?w=400&q=80', label: 'Month Cake' },
+      { img: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400&q=80', label: 'Brownies' },
+      { img: 'https://images.unsplash.com/photo-1535141192574-5d4897c12636?w=400&q=80', label: 'Wedding' },
+      { img: 'https://images.unsplash.com/photo-1559620192-032c4bc4674e?w=400&q=80', label: 'Floral' },
+      { img: 'https://images.unsplash.com/photo-1586788680434-30d324b2d46f?w=400&q=80', label: 'Theme' },
+      { img: 'https://images.unsplash.com/photo-1587668178277-295251f900ce?w=400&q=80', label: 'Strawberry' },
+      { img: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&q=80', label: 'Gift Cake' },
+      { img: 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=400&q=80', label: 'Special' },
+    ];
+
+    let cart = {}, activeTab = Object.keys(categories)[0], currentGalleryLabel = '';
     const allCakes = () => Object.values(categories).flat();
 
     function renderTabs() {
@@ -1458,16 +1706,33 @@
     function switchTab(t) { activeTab = t; renderTabs(); renderMenu(); }
     function renderMenu() {
       document.getElementById('menuGrid').innerHTML = categories[activeTab].map((c, i) => `
-    <div class="cake-card" style="animation-delay:${i * .06}s">
-      <div class="cake-img">${c.tag ? `<span class="cake-tag">${c.tag}</span>` : ''}<span>${c.emoji}</span></div>
+    <div class="cake-card" style="animation-delay:${i * .07}s">
+      <div class="cake-img-wrap">
+        ${c.tag ? `<span class="cake-tag">${c.tag}</span>` : ''}
+        <img class="ph-img" src="${c.img}" alt="${c.name}" loading="lazy"
+          onerror="this.style.background='#f5ede3';this.style.display='flex';this.style.alignItems='center';this.style.justifyContent='center';this.innerHTML='🎂'"/>
+      </div>
       <div class="cake-info">
         <div class="cake-name">${c.name}</div>
         <div class="cake-desc">${c.desc}</div>
         <div class="cake-footer">
-          <div class="cake-price">Rs. ${c.price.toLocaleString()}<small>Starting</small></div>
-          <button class="add-btn" onclick="addToCart(${c.id},this)">+ Add</button>
+          <div class="cake-price">Rs. ${c.price.toLocaleString()}<small>Starting price</small></div>
+          <div class="card-btns">
+            <button class="add-btn" onclick="addToCart(${c.id},this)">+ Cart</button>
+            
+          </div>
         </div>
       </div>
+    </div>`).join('');
+    }
+
+    function renderGallery() {
+      document.getElementById('galleryGrid').innerHTML = galleryItems.map((g, i) => `
+    <div class="gallery-item" onclick="openGalleryOrder('${g.label}')">
+      <img src="${g.img}" alt="${g.label}" loading="lazy"
+        onerror="this.parentNode.style.background='#f5ede3';this.style.display='none'"/>
+      <div class="gallery-label">${g.label}</div>
+      <button class="gallery-order-btn" onclick="event.stopPropagation();openGalleryOrder('${g.label}')">Order Same</button>
     </div>`).join('');
     }
 
@@ -1477,6 +1742,11 @@
         const o = btn.textContent; btn.textContent = '✓ Added'; btn.classList.add('added'); btn.disabled = true;
         setTimeout(() => { btn.textContent = o; btn.classList.remove('added'); btn.disabled = false; }, 1100);
       }
+    }
+    function orderNow(id) {
+      const c = allCakes().find(x => x.id == id);
+      const msg = `🎂 *New Order - Cake Station*\n\n*Cake:* ${c.name}\n*Price:* Rs. ${c.price.toLocaleString()} (starting)\n\nPlease confirm availability and delivery details. Thank you!`;
+      window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`, '_blank');
     }
     function changeQty(id, d) { cart[id] = (cart[id] || 0) + d; if (cart[id] <= 0) delete cart[id]; updateBadge(); renderCartItems(); }
     function removeFromCart(id) { delete cart[id]; updateBadge(); renderCartItems(); }
@@ -1489,7 +1759,7 @@
       el.innerHTML = keys.map(id => {
         const c = allCakes().find(x => x.id == id); return `
     <div class="cart-item">
-      <div class="cart-item-emoji">${c.emoji}</div>
+      <img class="cart-item-img" src="${c.img}" alt="${c.name}" onerror="this.style.display='none'"/>
       <div class="cart-item-info">
         <div class="cart-item-name">${c.name}</div>
         <div class="cart-item-price">Rs. ${(c.price * cart[id]).toLocaleString()}</div>
@@ -1513,22 +1783,26 @@
       closeCart();
       document.getElementById('orderSummary').innerHTML = Object.keys(cart).map(id => {
         const c = allCakes().find(x => x.id == id);
-        return `<div class="order-summary-row"><span>${c.emoji} ${c.name} x${cart[id]}</span><span>Rs. ${(c.price * cart[id]).toLocaleString()}</span></div>`;
+        return `<div class="order-summary-row"><span>${c.name} x${cart[id]}</span><span>Rs. ${(c.price * cart[id]).toLocaleString()}</span></div>`;
       }).join('') + `<div class="order-summary-total"><span>Total</span><span>Rs. ${getTotal().toLocaleString()}</span></div>`;
       document.getElementById('checkoutModal').classList.add('open');
     }
     function closeCheckout() { document.getElementById('checkoutModal').classList.remove('open'); }
 
     function placeOrder() {
-      const n = document.getElementById('custName').value.trim(), p = document.getElementById('custPhone').value.trim(), a = document.getElementById('custAddr').value.trim();
+      const n = document.getElementById('custName').value.trim(), p = document.getElementById('custPhone').value.trim(), a = document.getElementById('custAddr').value.trim(), note = document.getElementById('custNote').value.trim();
       if (!n || !p || !a) { alert('Please fill in all required fields 💕'); return; }
+      const items = Object.keys(cart).map(id => { const c = allCakes().find(x => x.id == id); return `  • ${c.name} x${cart[id]} — Rs. ${(c.price * cart[id]).toLocaleString()}`; }).join('\n');
+      const msg = `🎂 *New Order - Cake Station*\n\n*Customer:* ${n}\n*Phone:* ${p}\n*Address:* ${a}\n\n*Order Items:*\n${items}\n\n*Total:* Rs. ${getTotal().toLocaleString()}\n*Payment:* Cash on Delivery (COD)${note ? `\n\n*Special Instructions:* ${note}` : ''}`;
+      window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`, '_blank');
+      cart = {}; updateBadge(); renderCartItems(); closeCheckout();
       document.getElementById('checkoutContent').innerHTML = `
-    <div class="success-modal"><div class="check">🎉</div><h3>Order Placed!</h3>
-    <p>Thank you, <strong>${n}</strong>! 🎂<br>We'll call <strong>${p}</strong> to confirm.<br><br>💵 Keep cash ready for COD.<br><br><em>Follow us: <strong>@cake_station_fsd</strong></em></p>
+    <div class="success-modal"><div class="check">🎉</div><h3>Order Sent!</h3>
+    <p>Your order has been sent to WhatsApp!<br>We'll confirm your order shortly.<br><br>💵 Keep cash ready for COD delivery.</p>
     <button class="place-btn" onclick="resetOrder()">Continue Shopping 🎂</button></div>`;
     }
     function resetOrder() {
-      cart = {}; updateBadge(); renderCartItems(); closeCheckout();
+      closeCheckout();
       document.getElementById('checkoutContent').innerHTML = `<h3>Place Your Order 📦</h3>
     <div class="cod-badge">💵 Cash on Delivery</div>
     <div class="order-summary" id="orderSummary"></div>
@@ -1536,20 +1810,36 @@
     <div class="form-group"><label>Phone Number</label><input type="tel" id="custPhone" placeholder="03XX-XXXXXXX"/></div>
     <div class="form-group"><label>Delivery Address</label><textarea id="custAddr" placeholder="House #, Street, Area, Faisalabad"></textarea></div>
     <div class="form-group"><label>Special Instructions (optional)</label><textarea id="custNote" placeholder="Message on cake, flavour..."></textarea></div>
-    <button class="place-btn" onclick="placeOrder()">✅ Confirm Order</button>
+    <button class="place-btn" onclick="placeOrder()">💬 Send Order via WhatsApp</button>
     <button class="cancel-btn" onclick="closeCheckout()">Cancel</button>`;
     }
 
     function openCustomModal() { document.getElementById('customModal').classList.add('open'); }
     function closeCustomModal() { document.getElementById('customModal').classList.remove('open'); }
     function submitCustom() {
-      const n = document.getElementById('cName').value.trim(), p = document.getElementById('cPhone').value.trim(), t = document.getElementById('cType').value;
+      const n = document.getElementById('cName').value.trim(), p = document.getElementById('cPhone').value.trim(), t = document.getElementById('cType').value, s = document.getElementById('cSize').value, f = document.getElementById('cFlavour').value, d = document.getElementById('cDate').value, desc = document.getElementById('cDesc').value.trim();
       if (!n || !p || !t) { alert('Please fill name, phone & cake type 💕'); return; }
+      const msg = `🎨 *Custom Cake Request - Cake Station*\n\n*Name:* ${n}\n*Phone:* ${p}\n*Cake Type:* ${t}${s ? `\n*Size:* ${s}` : ''}${f ? `\n*Flavour:* ${f}` : ''}${d ? `\n*Event Date:* ${d}` : ''}${desc ? `\n*Design/Message:* ${desc}` : ''}`;
+      window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`, '_blank');
       document.querySelector('#customModal .modal').innerHTML = `
     <div class="success-modal"><div class="check">✨</div><h3>Request Sent!</h3>
-    <p>Thank you, <strong>${n}</strong>!<br>We'll contact <strong>${p}</strong> shortly.<br><br>
-    Or DM us: <a href="https://www.instagram.com/cake_station_fsd/" target="_blank" style="color:#833ab4;font-weight:700">@cake_station_fsd</a></p>
+    <p>Your custom cake request has been sent on WhatsApp!<br>We'll contact you shortly to discuss details.<br><br>
+    <a href="https://www.instagram.com/cake_station_fsd/" target="_blank" style="color:#833ab4;font-weight:700">@cake_station_fsd</a></p>
     <button class="place-btn" onclick="location.reload()">Back to Shop 🎂</button></div>`;
+    }
+
+    function openGalleryOrder(label) {
+      currentGalleryLabel = label;
+      document.getElementById('galleryOrderTitle').textContent = `Order: ${label} 🎂`;
+      document.getElementById('galleryOrderModal').classList.add('open');
+    }
+    function closeGalleryOrderModal() { document.getElementById('galleryOrderModal').classList.remove('open'); }
+    function submitGalleryOrder() {
+      const n = document.getElementById('gName').value.trim(), p = document.getElementById('gPhone').value.trim(), a = document.getElementById('gAddr').value.trim(), note = document.getElementById('gNote').value.trim();
+      if (!n || !p || !a) { alert('Please fill in all required fields 💕'); return; }
+      const msg = `🎂 *Gallery Order - Cake Station*\n\n*Cake:* ${currentGalleryLabel}\n*Name:* ${n}\n*Phone:* ${p}\n*Address:* ${a}\n*Payment:* Cash on Delivery (COD)${note ? `\n*Special Requests:* ${note}` : ''}`;
+      window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`, '_blank');
+      closeGalleryOrderModal();
     }
 
     function toggleMenu() {
@@ -1565,7 +1855,7 @@
       if (m.classList.contains('open') && !m.contains(e.target) && !h.contains(e.target)) closeMenu();
     });
 
-    renderTabs(); renderMenu();
+    renderTabs(); renderMenu(); renderGallery();
   </script>
 </body>
 

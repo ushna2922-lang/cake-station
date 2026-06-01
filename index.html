@@ -1,0 +1,1572 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cake Station - Faisalabad</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #faf7f2;
+      color: #2d1f0e
+    }
+
+    :root {
+      --brown: #6b3f1f;
+      --brown2: #8b5230;
+      --gold: #c9973a;
+      --gold2: #e8b96a;
+      --cream: #faf7f2;
+      --cream2: #f3ede3;
+      --cream3: #ede3d4;
+      --dark: #2d1f0e;
+      --muted: #7a5c3e;
+      --border: #e0cdb0
+    }
+
+    /* NAV */
+    nav {
+      background: #fff9f2;
+      border-bottom: 1.5px solid var(--border);
+      padding: 0 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      height: 60px;
+      box-shadow: 0 2px 10px #c9973a18
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: .55rem;
+      min-width: 0
+    }
+
+    .logo-circle {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #c9973a, #8b5230);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem
+    }
+
+    .logo-text {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--brown);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis
+    }
+
+    .logo-text span {
+      color: var(--gold)
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: .6rem
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.4rem;
+      list-style: none
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: .9rem;
+      font-weight: 500;
+      transition: color .2s
+    }
+
+    .nav-links a:hover {
+      color: var(--brown)
+    }
+
+    .cart-btn {
+      background: var(--brown);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: .4rem 1rem;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: .85rem;
+      display: flex;
+      align-items: center;
+      gap: .35rem;
+      white-space: nowrap;
+      flex-shrink: 0
+    }
+
+    .cart-btn:hover {
+      background: var(--brown2)
+    }
+
+    .cart-badge {
+      background: var(--gold);
+      color: #fff;
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      font-size: .68rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0
+    }
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+      padding: 4px;
+      flex-shrink: 0
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--brown);
+      border-radius: 2px;
+      transition: all .3s
+    }
+
+    .hamburger.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg)
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg)
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 60px;
+      left: 0;
+      right: 0;
+      background: #fff9f2;
+      border-bottom: 1.5px solid var(--border);
+      z-index: 199;
+      box-shadow: 0 8px 24px #2d1f0e22;
+      flex-direction: column;
+      padding: .5rem 0
+    }
+
+    .mobile-menu.open {
+      display: flex
+    }
+
+    .mobile-menu a {
+      padding: .85rem 1.5rem;
+      text-decoration: none;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: .95rem;
+      border-bottom: 1px solid #f0e6d6;
+      transition: background .15s
+    }
+
+    .mobile-menu a:hover {
+      background: var(--cream3);
+      color: var(--brown)
+    }
+
+    .mobile-menu a:last-child {
+      border-bottom: none
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(160deg, #f7efe2 0%, #ede0c8 60%, #e4d0b0 100%);
+      padding: 3.5rem 1.5rem;
+      text-align: center
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: #fff;
+      color: var(--brown);
+      border: 1px solid var(--gold);
+      border-radius: 999px;
+      padding: .28rem .9rem;
+      font-size: .78rem;
+      font-weight: 600;
+      margin-bottom: .9rem
+    }
+
+    .hero h1 {
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      font-weight: 800;
+      color: var(--brown);
+      line-height: 1.2
+    }
+
+    .hero h1 span {
+      color: var(--gold)
+    }
+
+    .hero p {
+      color: var(--muted);
+      margin: .9rem auto;
+      max-width: 520px;
+      font-size: .95rem;
+      line-height: 1.75
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: .7rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 1rem
+    }
+
+    .btn-primary {
+      background: var(--brown);
+      color: #fff;
+      padding: .7rem 1.6rem;
+      border-radius: 999px;
+      border: none;
+      font-weight: 700;
+      font-size: .9rem;
+      cursor: pointer;
+      transition: background .2s
+    }
+
+    .btn-primary:hover {
+      background: var(--brown2)
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--brown);
+      padding: .7rem 1.6rem;
+      border-radius: 999px;
+      border: 2px solid var(--brown);
+      font-weight: 700;
+      font-size: .9rem;
+      cursor: pointer;
+      transition: all .2s
+    }
+
+    .btn-outline:hover {
+      background: var(--brown);
+      color: #fff
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 1.8rem;
+      flex-wrap: wrap
+    }
+
+    .stat-num {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--brown)
+    }
+
+    .stat-label {
+      font-size: .73rem;
+      color: var(--muted);
+      margin-top: .1rem;
+      text-align: center
+    }
+
+    /* SECTIONS */
+    .section {
+      padding: 2.5rem 1.25rem;
+      max-width: 1100px;
+      margin: 0 auto
+    }
+
+    .section-head {
+      text-align: center;
+      margin-bottom: 1.8rem
+    }
+
+    .section-head h2 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--brown)
+    }
+
+    .section-head p {
+      color: var(--muted);
+      margin-top: .35rem;
+      font-size: .9rem
+    }
+
+    .divider {
+      width: 46px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--brown));
+      border-radius: 4px;
+      margin: .5rem auto 0
+    }
+
+    /* MENU */
+    .tabs {
+      display: flex;
+      gap: .45rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 1.6rem
+    }
+
+    .tab {
+      background: var(--cream3);
+      color: var(--muted);
+      border: 1.5px solid var(--border);
+      border-radius: 999px;
+      padding: .38rem 1rem;
+      font-size: .82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .2s
+    }
+
+    .tab.active,
+    .tab:hover {
+      background: var(--brown);
+      color: #fff;
+      border-color: var(--brown)
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 1.2rem
+    }
+
+    .cake-card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: transform .2s, box-shadow .2s
+    }
+
+    .cake-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px #6b3f1f18
+    }
+
+    .cake-img {
+      width: 100%;
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      position: relative;
+      background: linear-gradient(135deg, #f7efe2, #ede0c8)
+    }
+
+    .cake-tag {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: var(--gold);
+      color: #fff;
+      font-size: .68rem;
+      font-weight: 700;
+      padding: .18rem .55rem;
+      border-radius: 999px
+    }
+
+    .cake-info {
+      padding: .9rem
+    }
+
+    .cake-name {
+      font-weight: 700;
+      color: var(--dark);
+      font-size: .93rem
+    }
+
+    .cake-desc {
+      color: var(--muted);
+      font-size: .78rem;
+      margin: .28rem 0 .7rem;
+      line-height: 1.5
+    }
+
+    .cake-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between
+    }
+
+    .cake-price {
+      font-weight: 800;
+      font-size: .95rem;
+      color: var(--brown)
+    }
+
+    .cake-price small {
+      font-size: .68rem;
+      font-weight: 500;
+      color: var(--muted);
+      display: block
+    }
+
+    .add-btn {
+      background: var(--cream3);
+      color: var(--brown);
+      border: 1.5px solid var(--gold);
+      border-radius: 999px;
+      padding: .32rem .8rem;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: .8rem;
+      transition: all .2s;
+      min-width: 68px
+    }
+
+    .add-btn:hover {
+      background: var(--brown);
+      color: #fff;
+      border-color: var(--brown)
+    }
+
+    .add-btn.added {
+      background: #d1fae5;
+      color: #059669;
+      border-color: #6ee7b7
+    }
+
+    /* GALLERY */
+    .gallery-section {
+      background: var(--cream2);
+      padding: 2.5rem 1.25rem
+    }
+
+    .gallery-inner {
+      max-width: 1100px;
+      margin: 0 auto
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: .65rem;
+      margin-top: 1.4rem
+    }
+
+    .gallery-item {
+      aspect-ratio: 1;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      background: linear-gradient(135deg, #f7efe2, #ede0c8);
+      cursor: pointer;
+      transition: transform .2s, box-shadow .2s;
+      position: relative
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.04);
+      box-shadow: 0 6px 16px #6b3f1f22
+    }
+
+    .gallery-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, #2d1f0ecc);
+      color: #fff;
+      font-size: .65rem;
+      font-weight: 600;
+      padding: .4rem .5rem .35rem;
+      text-align: center
+    }
+
+    .gallery-cta {
+      text-align: center;
+      margin-top: 1.4rem
+    }
+
+    .gallery-cta p {
+      color: var(--muted);
+      font-size: .85rem;
+      margin-bottom: .9rem
+    }
+
+    .insta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: .6rem 1.4rem;
+      font-weight: 700;
+      font-size: .9rem;
+      cursor: pointer;
+      text-decoration: none
+    }
+
+    .insta-btn:hover {
+      opacity: .88
+    }
+
+    /* CUSTOM — mobile friendly */
+    .custom-wrap {
+      padding: 1.5rem 1.25rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto
+    }
+
+    .custom-section {
+      background: linear-gradient(135deg, #f3ede3, #ede0c8);
+      border-radius: 18px;
+      padding: 2rem 1.5rem;
+      text-align: center
+    }
+
+    .custom-section h3 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--brown);
+      margin-bottom: .5rem
+    }
+
+    .custom-section p {
+      color: var(--muted);
+      font-size: .9rem;
+      max-width: 480px;
+      margin: 0 auto 1.2rem;
+      line-height: 1.7
+    }
+
+    .custom-features {
+      display: flex;
+      justify-content: center;
+      gap: .5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.3rem
+    }
+
+    .feat-pill {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: .3rem .8rem;
+      font-size: .78rem;
+      color: var(--brown);
+      font-weight: 600;
+      white-space: nowrap
+    }
+
+    /* CONTACT */
+    .contact-full {
+      background: linear-gradient(160deg, #2d1f0e 0%, #4a2e10 100%);
+      padding: 3rem 1.25rem
+    }
+
+    .contact-full-inner {
+      max-width: 1100px;
+      margin: 0 auto
+    }
+
+    .contact-full h2 {
+      text-align: center;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--gold2);
+      margin-bottom: .35rem
+    }
+
+    .contact-full .sub {
+      text-align: center;
+      color: #c9a06a;
+      font-size: .9rem;
+      margin-bottom: .5rem
+    }
+
+    .cdivider {
+      width: 46px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold2));
+      border-radius: 4px;
+      margin: .5rem auto 2rem
+    }
+
+    .contact-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem
+    }
+
+    .cc {
+      background: #ffffff12;
+      border: 1px solid #ffffff22;
+      border-radius: 16px;
+      padding: 1.4rem 1.1rem;
+      text-align: center;
+      transition: background .2s
+    }
+
+    .cc:hover {
+      background: #ffffff1e
+    }
+
+    .cc .cicon {
+      font-size: 2rem;
+      margin-bottom: .6rem
+    }
+
+    .cc h4 {
+      color: var(--gold2);
+      font-size: .9rem;
+      font-weight: 700;
+      margin-bottom: .35rem
+    }
+
+    .cc p {
+      color: #d4b896;
+      font-size: .82rem;
+      line-height: 1.6
+    }
+
+    .cc a {
+      color: var(--gold2);
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-block;
+      margin-top: .4rem
+    }
+
+    .cc a:hover {
+      text-decoration: underline
+    }
+
+    .social-row {
+      display: flex;
+      justify-content: center;
+      gap: .8rem;
+      flex-wrap: wrap
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      border-radius: 999px;
+      padding: .65rem 1.4rem;
+      font-weight: 700;
+      font-size: .9rem;
+      cursor: pointer;
+      text-decoration: none;
+      border: none;
+      transition: opacity .2s;
+      white-space: nowrap
+    }
+
+    .social-btn:hover {
+      opacity: .85
+    }
+
+    .wa-btn {
+      background: #25d366;
+      color: #fff
+    }
+
+    .ig-btn {
+      background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+      color: #fff
+    }
+
+    .contact-tagline {
+      text-align: center;
+      color: #7a5230;
+      font-size: .8rem;
+      margin-top: 1.8rem
+    }
+
+    footer {
+      background: #1a0f05;
+      color: #7a5230;
+      text-align: center;
+      padding: 1.2rem;
+      font-size: .8rem
+    }
+
+    footer span {
+      color: var(--gold2);
+      font-weight: 600
+    }
+
+    footer a {
+      color: var(--gold2);
+      text-decoration: none
+    }
+
+    /* CART */
+    .overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: #0007;
+      z-index: 300;
+      justify-content: flex-end
+    }
+
+    .overlay.open {
+      display: flex
+    }
+
+    .cart-panel {
+      background: #fff;
+      width: 360px;
+      max-width: 100vw;
+      height: 100%;
+      display: flex;
+      flex-direction: column
+    }
+
+    .cart-header {
+      background: #f7efe2;
+      padding: 1.1rem 1.4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border)
+    }
+
+    .cart-header h3 {
+      color: var(--brown);
+      font-weight: 700;
+      font-size: 1rem
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      font-size: 1.3rem;
+      cursor: pointer;
+      color: var(--muted)
+    }
+
+    .close-btn:hover {
+      color: var(--brown)
+    }
+
+    .cart-items {
+      flex: 1;
+      overflow-y: auto;
+      padding: .9rem 1.3rem
+    }
+
+    .empty-cart {
+      text-align: center;
+      color: var(--muted);
+      margin-top: 3rem;
+      font-size: .9rem
+    }
+
+    .cart-item {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      padding: .75rem 0;
+      border-bottom: 1px solid #f0e6d6
+    }
+
+    .cart-item-emoji {
+      font-size: 1.8rem;
+      width: 40px;
+      text-align: center
+    }
+
+    .cart-item-info {
+      flex: 1;
+      min-width: 0
+    }
+
+    .cart-item-name {
+      font-weight: 600;
+      font-size: .85rem;
+      color: var(--dark)
+    }
+
+    .cart-item-price {
+      color: var(--brown);
+      font-size: .82rem;
+      font-weight: 700
+    }
+
+    .qty-ctrl {
+      display: flex;
+      align-items: center;
+      gap: .35rem;
+      margin-top: .25rem
+    }
+
+    .qty-btn {
+      background: var(--cream3);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      width: 21px;
+      height: 21px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: .82rem;
+      color: var(--brown);
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+
+    .qty-btn:hover {
+      background: var(--brown);
+      color: #fff
+    }
+
+    .qty-num {
+      font-size: .83rem;
+      font-weight: 600;
+      min-width: 16px;
+      text-align: center
+    }
+
+    .remove-btn {
+      background: none;
+      border: none;
+      color: #fca5a5;
+      cursor: pointer;
+      font-size: 1rem;
+      flex-shrink: 0
+    }
+
+    .remove-btn:hover {
+      color: #ef4444
+    }
+
+    .cart-footer {
+      padding: 1.1rem 1.3rem;
+      border-top: 1px solid var(--border);
+      background: #faf7f2
+    }
+
+    .cart-total {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+      font-size: .97rem;
+      margin-bottom: .9rem;
+      color: var(--dark)
+    }
+
+    .checkout-btn {
+      width: 100%;
+      background: var(--brown);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: .75rem;
+      font-weight: 700;
+      font-size: .95rem;
+      cursor: pointer
+    }
+
+    .checkout-btn:hover {
+      background: var(--brown2)
+    }
+
+    /* MODALS */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: #0007;
+      z-index: 400;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem
+    }
+
+    .modal-overlay.open {
+      display: flex
+    }
+
+    .modal {
+      background: #fff;
+      border-radius: 18px;
+      padding: 1.6rem;
+      width: 100%;
+      max-width: 430px;
+      max-height: 90vh;
+      overflow-y: auto
+    }
+
+    .modal h3 {
+      color: var(--brown);
+      font-weight: 800;
+      margin-bottom: 1.1rem;
+      font-size: 1.1rem
+    }
+
+    .form-group {
+      margin-bottom: .9rem
+    }
+
+    .form-group label {
+      display: block;
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: .3rem
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: .55rem .85rem;
+      font-size: .92rem;
+      outline: none;
+      background: #faf7f2;
+      color: var(--dark);
+      transition: border .2s;
+      font-family: inherit
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--gold)
+    }
+
+    .form-group textarea {
+      height: 75px;
+      resize: vertical
+    }
+
+    .cod-badge {
+      background: #fef9c3;
+      border: 1px solid #fde68a;
+      border-radius: 8px;
+      padding: .45rem .85rem;
+      font-size: .8rem;
+      color: #92400e;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      margin-bottom: .9rem
+    }
+
+    .order-summary {
+      background: #f7efe2;
+      border-radius: 10px;
+      padding: .85rem;
+      margin-bottom: .9rem;
+      font-size: .82rem
+    }
+
+    .order-summary-row {
+      display: flex;
+      justify-content: space-between;
+      padding: .18rem 0;
+      color: var(--muted)
+    }
+
+    .order-summary-total {
+      display: flex;
+      justify-content: space-between;
+      padding: .45rem 0 0;
+      border-top: 1px solid var(--border);
+      font-weight: 800;
+      color: var(--brown);
+      margin-top: .3rem
+    }
+
+    .place-btn {
+      width: 100%;
+      background: var(--brown);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: .75rem;
+      font-weight: 700;
+      font-size: .95rem;
+      cursor: pointer;
+      margin-top: .4rem
+    }
+
+    .place-btn:hover {
+      background: var(--brown2)
+    }
+
+    .cancel-btn {
+      width: 100%;
+      background: none;
+      border: 1.5px solid var(--border);
+      border-radius: 999px;
+      padding: .65rem;
+      font-weight: 600;
+      font-size: .88rem;
+      cursor: pointer;
+      color: var(--muted);
+      margin-top: .4rem
+    }
+
+    .cancel-btn:hover {
+      border-color: var(--brown);
+      color: var(--brown)
+    }
+
+    .success-modal {
+      text-align: center
+    }
+
+    .success-modal .check {
+      font-size: 3rem;
+      margin-bottom: .4rem
+    }
+
+    .success-modal h3 {
+      color: #059669;
+      font-size: 1.2rem;
+      font-weight: 800
+    }
+
+    .success-modal p {
+      color: var(--muted);
+      margin: .5rem 0 1rem;
+      font-size: .87rem;
+      line-height: 1.7
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(6px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    .cake-card {
+      animation: fadeIn .28s ease both
+    }
+
+    @media(max-width:640px) {
+      .nav-links {
+        display: none
+      }
+
+      .hamburger {
+        display: flex
+      }
+
+      .hero {
+        padding: 2.5rem 1.1rem
+      }
+
+      .hero-stats {
+        gap: 1.4rem
+      }
+
+      .menu-grid {
+        grid-template-columns: repeat(1, 1fr);
+        gap: .9rem
+      }
+
+      .cake-img {
+        height: 120px;
+        font-size: 3rem
+      }
+
+      .cake-info {
+        padding: .75rem
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: .5rem
+      }
+
+      .contact-cards {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .social-row {
+        flex-direction: column;
+        align-items: center
+      }
+
+      .custom-section {
+        padding: 1.5rem 1rem
+      }
+
+      .custom-section h3 {
+        font-size: 1.15rem
+      }
+
+      .custom-features {
+        gap: .4rem
+      }
+
+      .feat-pill {
+        font-size: .73rem;
+        padding: .26rem .65rem
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="logo">
+      <div class="logo-circle">🎂</div>
+      <div class="logo-text">Cake <span>Station</span></div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#custom">Custom</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="cart-btn" onclick="openCart()">🛒 Cart <span class="cart-badge" id="cartBadge">0</span></button>
+      <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home" onclick="closeMenu()">🏠 Home</a>
+    <a href="#menu" onclick="closeMenu()">🎂 Menu</a>
+    <a href="#gallery" onclick="closeMenu()">📸 Gallery</a>
+    <a href="#custom" onclick="closeMenu()">🎨 Custom Cake</a>
+    <a href="#contact" onclick="closeMenu()">📞 Contact</a>
+  </div>
+
+  <div id="home" class="hero">
+    <div class="hero-badge">✨ Homemade · Faisalabad</div>
+    <h1>Your Dream Cake,<br><span>Made Just for You</span></h1>
+    <p>Customise your cakes according to your choice in reasonable prices and make your day truly memorable.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">Order
+        Now 🎂</button>
+      <button class="btn-outline"
+        onclick="document.getElementById('custom').scrollIntoView({behavior:'smooth'})">Customise Cake</button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">347+</div>
+        <div class="stat-label">Happy Orders</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">530+</div>
+        <div class="stat-label">Followers</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Homemade</div>
+      </div>
+    </div>
+  </div>
+
+  <section class="section" id="menu">
+    <div class="section-head">
+      <h2>Our Menu</h2>
+      <p>Fresh, beautiful, and handcrafted for every occasion 🍰</p>
+      <div class="divider"></div>
+    </div>
+    <div class="tabs" id="tabBar"></div>
+    <div class="menu-grid" id="menuGrid"></div>
+  </section>
+
+  <div class="gallery-section" id="gallery">
+    <div class="gallery-inner">
+      <div class="section-head">
+        <h2>Our Previous Cakes</h2>
+        <p>A glimpse of the love we've baked 🎂</p>
+        <div class="divider"></div>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item"><span>🌹</span>
+          <div class="gallery-label">Rose Cake</div>
+        </div>
+        <div class="gallery-item"><span>🎂</span>
+          <div class="gallery-label">Birthday</div>
+        </div>
+        <div class="gallery-item"><span>🏆</span>
+          <div class="gallery-label">Tier Cake</div>
+        </div>
+        <div class="gallery-item"><span>🧁</span>
+          <div class="gallery-label">Cupcakes</div>
+        </div>
+        <div class="gallery-item"><span>👶</span>
+          <div class="gallery-label">Month Cake</div>
+        </div>
+        <div class="gallery-item"><span>🍫</span>
+          <div class="gallery-label">Chocolate</div>
+        </div>
+        <div class="gallery-item"><span>💍</span>
+          <div class="gallery-label">Wedding</div>
+        </div>
+        <div class="gallery-item"><span>🌸</span>
+          <div class="gallery-label">Floral</div>
+        </div>
+        <div class="gallery-item"><span>🎠</span>
+          <div class="gallery-label">Theme</div>
+        </div>
+        <div class="gallery-item"><span>🍓</span>
+          <div class="gallery-label">Strawberry</div>
+        </div>
+        <div class="gallery-item"><span>🎁</span>
+          <div class="gallery-label">Gift Cake</div>
+        </div>
+        <div class="gallery-item"><span>🍮</span>
+          <div class="gallery-label">Brownies</div>
+        </div>
+      </div>
+      <div class="gallery-cta">
+        <p>See 347+ more creations on our Instagram 📸</p>
+        <a class="insta-btn" href="https://www.instagram.com/cake_station_fsd/" target="_blank">📸 View Full Gallery on
+          Instagram</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="custom-wrap" id="custom">
+    <div class="custom-section">
+      <h3>🎨 Custom Cake Orders</h3>
+      <p>Want something truly unique? We customise cakes for birthdays, weddings, anniversaries, baby showers, and any
+        special occasion.</p>
+      <div class="custom-features">
+        <span class="feat-pill">🎂 Themed</span>
+        <span class="feat-pill">🌸 Flower</span>
+        <span class="feat-pill">🏆 Tier</span>
+        <span class="feat-pill">👶 Month</span>
+        <span class="feat-pill">💍 Wedding</span>
+        <span class="feat-pill">🧁 Cupcakes</span>
+      </div>
+      <button class="btn-primary" onclick="openCustomModal()">Request Custom Cake ✨</button>
+    </div>
+  </div>
+
+  <div class="contact-full" id="contact">
+    <div class="contact-full-inner">
+      <h2>Get in Touch</h2>
+      <p class="sub">We'd love to bake something special for you 🎂</p>
+      <div class="cdivider"></div>
+      <div class="contact-cards">
+        <div class="cc">
+          <div class="cicon">📱</div>
+          <h4>WhatsApp Us</h4>
+          <p>Chat directly for orders</p>
+          <a href="https://wa.me/923001234567" target="_blank">DM </a>
+        </div>
+        <div class="cc">
+          <div class="cicon">📸</div>
+          <h4>Instagram</h4>
+          <p>Browse our portfolio & DM us to order</p>
+          <a href="https://www.instagram.com/cake_station_fsd/" target="_blank">@cake_station_fsd </a>
+        </div>
+        <div class="cc">
+          <div class="cicon">📍</div>
+          <h4>Location</h4>
+          <p>Faisalabad, Punjab, Pakistan<br>Home delivery in city</p>
+        </div>
+        <div class="cc">
+          <div class="cicon">🕐</div>
+          <h4>Working Hours</h4>
+          <p>Monday – Saturday<br>9:00 AM – 8:00 PM</p>
+        </div>
+      </div>
+      <div class="social-row">
+        <a class="social-btn wa-btn" href="https://wa.me/923001234567" target="_blank">💬 Chat on WhatsApp</a>
+        <a class="social-btn ig-btn" href="https://www.instagram.com/cake_station_fsd/" target="_blank">📸 Follow on
+          Instagram</a>
+      </div>
+      <p class="contact-tagline">🎂 Cake Station · Customise your cakes, make your day memorable</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>🎂 <span>Cake Station</span> · Faisalabad &nbsp;|&nbsp; © 2026 &nbsp;|&nbsp;
+      <a href="https://www.instagram.com/cake_station_fsd/" target="_blank">@cake_station_fsd</a>
+    </p>
+  </footer>
+
+  <div class="overlay" id="cartOverlay" onclick="closeCartOutside(event)">
+    <div class="cart-panel">
+      <div class="cart-header">
+        <h3>🛒 Your Cart</h3>
+        <button class="close-btn" onclick="closeCart()">✕</button>
+      </div>
+      <div class="cart-items" id="cartItems">
+        <p class="empty-cart">Your cart is empty 🎂<br><small>Add some cakes!</small></p>
+      </div>
+      <div class="cart-footer" id="cartFooter" style="display:none">
+        <div class="cart-total"><span>Total</span><span id="cartTotal">Rs. 0</span></div>
+        <button class="checkout-btn" onclick="openCheckout()">Proceed to Order (COD) →</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="checkoutModal">
+    <div class="modal" id="checkoutContent">
+      <h3>Place Your Order 📦</h3>
+      <div class="cod-badge">💵 Cash on Delivery</div>
+      <div class="order-summary" id="orderSummary"></div>
+      <div class="form-group"><label>Full Name</label><input type="text" id="custName" placeholder="Your full name" />
+      </div>
+      <div class="form-group"><label>Phone Number</label><input type="tel" id="custPhone" placeholder="03XX-XXXXXXX" />
+      </div>
+      <div class="form-group"><label>Delivery Address</label><textarea id="custAddr"
+          placeholder="House #, Street, Area, Faisalabad"></textarea></div>
+      <div class="form-group"><label>Special Instructions (optional)</label><textarea id="custNote"
+          placeholder="Message on cake, flavour..."></textarea></div>
+      <button class="place-btn" onclick="placeOrder()">✅ Confirm Order</button>
+      <button class="cancel-btn" onclick="closeCheckout()">Cancel</button>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="customModal">
+    <div class="modal">
+      <h3>🎨 Custom Cake Request</h3>
+      <div class="form-group"><label>Your Name</label><input type="text" id="cName" placeholder="Full name" /></div>
+      <div class="form-group"><label>WhatsApp Number</label><input type="tel" id="cPhone" placeholder="03XX-XXXXXXX" />
+      </div>
+      <div class="form-group"><label>Cake Type</label>
+        <select id="cType">
+          <option value="">Select cake type...</option>
+          <option>Birthday Cake</option>
+          <option>Wedding Cake</option>
+          <option>Tier Cake</option>
+          <option>Flower Cake</option>
+          <option>Theme Cake</option>
+          <option>Month Cake</option>
+          <option>Cupcake Set</option>
+          <option>Brownie Box</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Size</label>
+        <select id="cSize">
+          <option value="">Select size...</option>
+          <option>Size 1 (Small) — Rs. 1500</option>
+          <option>Size 2 (Medium) — Rs. 2000</option>
+          <option>Size 3 (Large) — Rs. 3000</option>
+          <option>Not sure — discuss with baker</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Flavour</label>
+        <select id="cFlavour">
+          <option value="">Select flavour...</option>
+          <option>Chocolate</option>
+          <option>Vanilla</option>
+          <option>Red Velvet</option>
+          <option>Strawberry</option>
+          <option>Caramel</option>
+          <option>Black Forest</option>
+          <option>Lemon</option>
+          <option>Mix / Surprise me</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Event Date</label><input type="date" id="cDate" /></div>
+      <div class="form-group"><label>Design / Message</label><textarea id="cDesc"
+          placeholder="Describe your dream cake..."></textarea></div>
+      <button class="place-btn" onclick="submitCustom()">✨ Send Request</button>
+      <button class="cancel-btn" onclick="closeCustomModal()">Cancel</button>
+    </div>
+  </div>
+
+  <script>
+    const categories = {
+      'Birthday Cakes': [
+        { id: 1, emoji: '🎂', name: 'Classic Birthday', desc: 'Sponge with cream frosting & your message', price: 1500, tag: 'Popular' },
+        { id: 2, emoji: '🎠', name: 'Themed Cake', desc: 'Cartoons, sports, florals & more', price: 2000, tag: 'Custom' },
+        { id: 3, emoji: '🏆', name: 'Tier Birthday', desc: '2–3 tier stacked celebration cake', price: 3000, tag: 'Premium' },
+      ],
+      'Flower Cakes': [
+        { id: 4, emoji: '🌸', name: 'Floral Cream Cake', desc: 'Buttercream flowers on light sponge', price: 2000, tag: 'Trending' },
+        { id: 5, emoji: '🌹', name: 'Rose Bouquet Cake', desc: 'Red & pink rose design for gifting', price: 2200, tag: 'Bestseller' },
+      ],
+      'Cupcakes': [
+        { id: 6, emoji: '🧁', name: 'Cupcake Set (6 pcs)', desc: 'Assorted flavours with swirl topping', price: 900, tag: '' },
+        { id: 7, emoji: '🍫', name: 'Choco Cupcakes (6)', desc: 'Dark chocolate sponge & ganache', price: 950, tag: '' },
+      ],
+      'Special': [
+        { id: 8, emoji: '👶', name: 'Month Milestone', desc: 'Baby milestone monthly cake', price: 1800, tag: 'Cute' },
+        { id: 9, emoji: '🍫', name: 'Brownie Box', desc: '9 fudgy homemade chocolate brownies', price: 1200, tag: 'Gift' },
+        { id: 10, emoji: '💍', name: 'Wedding Cake', desc: 'Elegant white & gold for your big day', price: 4500, tag: 'Premium' },
+      ]
+    };
+
+    let cart = {}, activeTab = Object.keys(categories)[0];
+    const allCakes = () => Object.values(categories).flat();
+
+    function renderTabs() {
+      document.getElementById('tabBar').innerHTML = Object.keys(categories).map(k =>
+        `<button class="tab${k === activeTab ? ' active' : ''}" onclick="switchTab('${k}')">${k}</button>`).join('');
+    }
+    function switchTab(t) { activeTab = t; renderTabs(); renderMenu(); }
+    function renderMenu() {
+      document.getElementById('menuGrid').innerHTML = categories[activeTab].map((c, i) => `
+    <div class="cake-card" style="animation-delay:${i * .06}s">
+      <div class="cake-img">${c.tag ? `<span class="cake-tag">${c.tag}</span>` : ''}<span>${c.emoji}</span></div>
+      <div class="cake-info">
+        <div class="cake-name">${c.name}</div>
+        <div class="cake-desc">${c.desc}</div>
+        <div class="cake-footer">
+          <div class="cake-price">Rs. ${c.price.toLocaleString()}<small>Starting</small></div>
+          <button class="add-btn" onclick="addToCart(${c.id},this)">+ Add</button>
+        </div>
+      </div>
+    </div>`).join('');
+    }
+
+    function addToCart(id, btn) {
+      cart[id] = (cart[id] || 0) + 1; updateBadge(); renderCartItems();
+      if (btn) {
+        const o = btn.textContent; btn.textContent = '✓ Added'; btn.classList.add('added'); btn.disabled = true;
+        setTimeout(() => { btn.textContent = o; btn.classList.remove('added'); btn.disabled = false; }, 1100);
+      }
+    }
+    function changeQty(id, d) { cart[id] = (cart[id] || 0) + d; if (cart[id] <= 0) delete cart[id]; updateBadge(); renderCartItems(); }
+    function removeFromCart(id) { delete cart[id]; updateBadge(); renderCartItems(); }
+    function updateBadge() { document.getElementById('cartBadge').textContent = Object.values(cart).reduce((a, b) => a + b, 0); }
+    function getTotal() { return Object.entries(cart).reduce((s, [id, q]) => { const c = allCakes().find(x => x.id == id); return s + (c ? c.price * q : 0); }, 0); }
+    function renderCartItems() {
+      const el = document.getElementById('cartItems'), footer = document.getElementById('cartFooter'), keys = Object.keys(cart);
+      if (!keys.length) { el.innerHTML = '<p class="empty-cart">Your cart is empty 🎂<br><small>Add some cakes!</small></p>'; footer.style.display = 'none'; return; }
+      footer.style.display = 'block';
+      el.innerHTML = keys.map(id => {
+        const c = allCakes().find(x => x.id == id); return `
+    <div class="cart-item">
+      <div class="cart-item-emoji">${c.emoji}</div>
+      <div class="cart-item-info">
+        <div class="cart-item-name">${c.name}</div>
+        <div class="cart-item-price">Rs. ${(c.price * cart[id]).toLocaleString()}</div>
+        <div class="qty-ctrl">
+          <button class="qty-btn" onclick="changeQty(${id},-1)">−</button>
+          <span class="qty-num">${cart[id]}</span>
+          <button class="qty-btn" onclick="changeQty(${id},1)">+</button>
+        </div>
+      </div>
+      <button class="remove-btn" onclick="removeFromCart(${id})">🗑</button>
+    </div>`;
+      }).join('');
+      document.getElementById('cartTotal').textContent = 'Rs. ' + getTotal().toLocaleString();
+    }
+
+    function openCart() { document.getElementById('cartOverlay').classList.add('open'); }
+    function closeCart() { document.getElementById('cartOverlay').classList.remove('open'); }
+    function closeCartOutside(e) { if (e.target === document.getElementById('cartOverlay')) closeCart(); }
+
+    function openCheckout() {
+      closeCart();
+      document.getElementById('orderSummary').innerHTML = Object.keys(cart).map(id => {
+        const c = allCakes().find(x => x.id == id);
+        return `<div class="order-summary-row"><span>${c.emoji} ${c.name} x${cart[id]}</span><span>Rs. ${(c.price * cart[id]).toLocaleString()}</span></div>`;
+      }).join('') + `<div class="order-summary-total"><span>Total</span><span>Rs. ${getTotal().toLocaleString()}</span></div>`;
+      document.getElementById('checkoutModal').classList.add('open');
+    }
+    function closeCheckout() { document.getElementById('checkoutModal').classList.remove('open'); }
+
+    function placeOrder() {
+      const n = document.getElementById('custName').value.trim(), p = document.getElementById('custPhone').value.trim(), a = document.getElementById('custAddr').value.trim();
+      if (!n || !p || !a) { alert('Please fill in all required fields 💕'); return; }
+      document.getElementById('checkoutContent').innerHTML = `
+    <div class="success-modal"><div class="check">🎉</div><h3>Order Placed!</h3>
+    <p>Thank you, <strong>${n}</strong>! 🎂<br>We'll call <strong>${p}</strong> to confirm.<br><br>💵 Keep cash ready for COD.<br><br><em>Follow us: <strong>@cake_station_fsd</strong></em></p>
+    <button class="place-btn" onclick="resetOrder()">Continue Shopping 🎂</button></div>`;
+    }
+    function resetOrder() {
+      cart = {}; updateBadge(); renderCartItems(); closeCheckout();
+      document.getElementById('checkoutContent').innerHTML = `<h3>Place Your Order 📦</h3>
+    <div class="cod-badge">💵 Cash on Delivery</div>
+    <div class="order-summary" id="orderSummary"></div>
+    <div class="form-group"><label>Full Name</label><input type="text" id="custName" placeholder="Your full name"/></div>
+    <div class="form-group"><label>Phone Number</label><input type="tel" id="custPhone" placeholder="03XX-XXXXXXX"/></div>
+    <div class="form-group"><label>Delivery Address</label><textarea id="custAddr" placeholder="House #, Street, Area, Faisalabad"></textarea></div>
+    <div class="form-group"><label>Special Instructions (optional)</label><textarea id="custNote" placeholder="Message on cake, flavour..."></textarea></div>
+    <button class="place-btn" onclick="placeOrder()">✅ Confirm Order</button>
+    <button class="cancel-btn" onclick="closeCheckout()">Cancel</button>`;
+    }
+
+    function openCustomModal() { document.getElementById('customModal').classList.add('open'); }
+    function closeCustomModal() { document.getElementById('customModal').classList.remove('open'); }
+    function submitCustom() {
+      const n = document.getElementById('cName').value.trim(), p = document.getElementById('cPhone').value.trim(), t = document.getElementById('cType').value;
+      if (!n || !p || !t) { alert('Please fill name, phone & cake type 💕'); return; }
+      document.querySelector('#customModal .modal').innerHTML = `
+    <div class="success-modal"><div class="check">✨</div><h3>Request Sent!</h3>
+    <p>Thank you, <strong>${n}</strong>!<br>We'll contact <strong>${p}</strong> shortly.<br><br>
+    Or DM us: <a href="https://www.instagram.com/cake_station_fsd/" target="_blank" style="color:#833ab4;font-weight:700">@cake_station_fsd</a></p>
+    <button class="place-btn" onclick="location.reload()">Back to Shop 🎂</button></div>`;
+    }
+
+    function toggleMenu() {
+      const m = document.getElementById('mobileMenu'), h = document.getElementById('hamburger');
+      m.classList.toggle('open'); h.classList.toggle('open');
+    }
+    function closeMenu() {
+      document.getElementById('mobileMenu').classList.remove('open');
+      document.getElementById('hamburger').classList.remove('open');
+    }
+    document.addEventListener('click', e => {
+      const m = document.getElementById('mobileMenu'), h = document.getElementById('hamburger');
+      if (m.classList.contains('open') && !m.contains(e.target) && !h.contains(e.target)) closeMenu();
+    });
+
+    renderTabs(); renderMenu();
+  </script>
+</body>
+
+</html>

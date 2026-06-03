@@ -442,7 +442,7 @@ const WA = '923120737022';
 // Placeholder images - replace src with real cake images
 const categories={
   'Birthday Cakes':[
-    {id:1,img:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80',name:'Classic Birthday',desc:'Sponge with cream frosting & your message',price:1500,tag:'Popular'},
+    {id:1,img:'https://images.unsplash.com/photo-1559620192-032c4bc4674e?w=400&q=80',name:'Classic Birthday',desc:'Sponge with cream frosting & your message',price:1500,tag:'Popular'},
     {id:2,img:'https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=400&q=80',name:'Themed Cake',desc:'Cartoons, sports, florals & more',price:2000,tag:'Custom'},
     {id:3,img:'https://images.unsplash.com/photo-1623428454614-abaf00244e52?w=400&q=80',name:'Tier Birthday',desc:'2–3 tier stacked celebration cake',price:3000,tag:'Premium'},
   ],
@@ -462,7 +462,7 @@ const categories={
 };
 
 const galleryItems=[
-  {img:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80',label:'Rose Cake'},
+  {img:'https://images.unsplash.com/photo-1559620192-032c4bc4674e?w=400&q=80',label:'Rose Cake'},
   {img:'https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=400&q=80',label:'Birthday'},
   {img:'https://images.unsplash.com/photo-1623428454614-abaf00244e52?w=400&q=80',label:'Tier Cake'},
   {img:'https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=400&q=80',label:'Cupcakes'},
@@ -499,7 +499,6 @@ function renderMenu(){
           <div class="cake-price">Rs. ${c.price.toLocaleString()}<small>Starting price</small></div>
           <div class="card-btns">
             <button class="add-btn" onclick="addToCart(${c.id},this)">+ Cart</button>
-            <button class="order-now-btn" onclick="orderNow(${c.id})">Order</button>
           </div>
         </div>
       </div>
